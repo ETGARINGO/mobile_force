@@ -1,82 +1,54 @@
-<div class="command-frame-container admin">
-  <div class="frame-header">
-    <div class="left">
-      <span class="status-dot"></span>
-      <span class="header-title">ADMIN PANEL :: COMMAND_PCS_v4.0</span>
-    </div>
-    <div class="right">
-      ACCESS LEVEL: ADMIN
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADMIN | INFORMATION SHEET</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="hud-overlay">
-    <div class="scan-line"></div>
+  <!-- Optional font -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body style="margin:0;">
+
+<div class="command-frame-container">
+  <div class="frame-header">
+    <span class="status-dot"></span>
+    ADMIN PANEL :: INFORMATION SHEET
   </div>
 
   <iframe 
     src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec?page=admin"
-    allow="geolocation; microphone; camera"
-    class="tactical-iframe">
+    class="tactical-iframe"
+    allow="geolocation; microphone; camera">
   </iframe>
 </div>
 
 <style>
-:root {
-  --pulis-blue: #1e40af;
-  --neon-blue: #38bdf8;
-  --admin-red: #ef4444;
-  --bg-dark: #020617;
-}
-
-/* FRAME */
 .command-frame-container {
   width: 100%;
   height: 100vh;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(56,189,248,0.03),
-      rgba(56,189,248,0.03) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    radial-gradient(circle at top, #020617, #000);
-  border: 2px solid var(--pulis-blue);
+  background: #020c1b;
+  border: 2px solid #1e40af;
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   box-shadow: 0 0 25px rgba(56,189,248,0.25);
 }
 
-/* HEADER */
 .frame-header {
   background: linear-gradient(90deg, #020617, #0a192f, #020617);
-  color: var(--neon-blue);
+  color: #38bdf8;
   padding: 12px 20px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--neon-blue);
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 6px var(--neon-blue);
-}
-
-.frame-header .left {
-  display: flex;
-  align-items: center;
   gap: 10px;
+  border-bottom: 1px solid #38bdf8;
+  letter-spacing: 2px;
 }
 
-.frame-header .right {
-  font-size: 10px;
-  color: var(--admin-red);
-  text-shadow: 0 0 6px var(--admin-red);
-}
-
-/* STATUS DOT */
 .status-dot {
   width: 10px;
   height: 10px;
@@ -86,51 +58,19 @@
   animation: pulse 1.6s infinite;
 }
 
-/* IFRAME */
 .tactical-iframe {
   flex-grow: 1;
+  width: 100%;
   border: none;
-  width: 100%;
   background: transparent;
-  animation: fadeIn 1.2s ease-in;
 }
 
-/* HUD */
-.hud-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.scan-line {
-  position: absolute;
-  top: -10%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(56,189,248,0.9),
-    transparent
-  );
-  box-shadow: 0 0 20px rgba(56,189,248,0.8);
-  animation: scan 7s linear infinite;
-}
-
-/* ANIMATIONS */
 @keyframes pulse {
   0% { opacity: 1; }
   50% { opacity: 0.4; }
   100% { opacity: 1; }
 }
-
-@keyframes scan {
-  0% { top: -10%; }
-  100% { top: 110%; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 </style>
+
+</body>
+</html>
