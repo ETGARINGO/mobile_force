@@ -1,0 +1,51 @@
+<div class="command-frame-container">
+  <div class="frame-header">
+    <span class="status-dot"></span> SECURED CONNECTION: COMMAND_PCS_v4.0
+  </div>
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec" 
+    allow="geolocation; microphone; camera"
+    class="tactical-iframe">
+  </iframe>
+</div>
+
+<style>
+  .command-frame-container {
+    width: 100%;
+    height: 100vh;
+    background: #020c1b;
+    border: 2px solid #1e3a8a;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .frame-header {
+    background: #0a192f;
+    color: #3b82f6;
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #3b82f6;
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: pulse 2s infinite;
+  }
+  .tactical-iframe {
+    flex-grow: 1;
+    border: none;
+    width: 100%;
+  }
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+</style>
