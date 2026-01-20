@@ -1,136 +1,89 @@
-<div class="command-frame-container">
-  <div class="frame-header">
-    <span class="status-dot"></span>
-    <span class="header-text">INFORMATION SHEET :: PULIS_COMMAND_NET</span>
-    <span class="header-right">SECURE | LIVE</span>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADMIN | INFORMATION SHEET</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="hud-overlay">
-    <div class="scan-line"></div>
-  </div>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
 
+<body style="margin:0; background:#020617;">
+
+<div class="command-frame-container loading">
   <iframe 
-    src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec"
-    allow="geolocation; microphone; camera"
-    class="tactical-iframe">
+    src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec?page=admin"
+    class="tactical-iframe"
+    allow="geolocation; microphone; camera">
   </iframe>
 </div>
 
 <style>
 :root {
-  --pulis-blue: #1e40af;
-  --neon-blue: #38bdf8;
-  --bg-dark: #020617;
+  --pulis-blue: #38bdf8;
+  --deep-blue: #1e40af;
 }
 
-/* MAIN FRAME */
+/* FRAME */
 .command-frame-container {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(56,189,248,0.03),
-      rgba(56,189,248,0.03) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    radial-gradient(circle at top, #020617, #000);
-  border: 2px solid var(--pulis-blue);
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  background: radial-gradient(circle at top, #020617, #000);
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(56,189,248,0.3);
 }
 
-/* HEADER */
-.frame-header {
-  background: linear-gradient(90deg, #020617, #020c1b, #020617);
-  color: var(--neon-blue);
-  padding: 12px 20px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--neon-blue);
-  text-shadow: 0 0 8px var(--neon-blue);
-  animation: flicker 4s infinite;
+/* BORDER LOADING EFFECT */
+.command-frame-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, transparent, var(--pulis-blue), transparent) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-scan 3s linear infinite;
+  pointer-events: none;
 }
 
-.header-text {
-  letter-spacing: 2px;
-}
-
-.header-right {
-  font-size: 10px;
-  opacity: 0.8;
-}
-
-/* STATUS DOT */
-.status-dot {
-  width: 10px;
-  height: 10px;
-  background: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 15px #22c55e;
-  animation: pulse 1.8s infinite;
+/* INNER GLOW */
+.command-frame-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 25px rgba(56,189,248,0.25);
+  pointer-events: none;
 }
 
 /* IFRAME */
 .tactical-iframe {
-  flex-grow: 1;
+  width: 100%;
+  height: 100%;
   border: none;
-  width: 100%;
   background: transparent;
-  animation: fadeIn 1.5s ease-in;
-}
-
-/* HUD OVERLAY */
-.hud-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* SCAN LINE */
-.scan-line {
-  position: absolute;
-  top: -10%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(56,189,248,0.8),
-    transparent
-  );
-  box-shadow: 0 0 20px rgba(56,189,248,0.8);
-  animation: scan 6s linear infinite;
+  animation: fadeIn 1.2s ease-in;
 }
 
 /* ANIMATIONS */
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-
-@keyframes scan {
-  0% { top: -10%; }
-  100% { top: 110%; }
+@keyframes border-scan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  97% { opacity: 0.9; }
-  98% { opacity: 0.4; }
-  99% { opacity: 1; }
-}
 </style>
+
+</body>
+</html>
