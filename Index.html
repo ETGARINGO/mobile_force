@@ -2,88 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ADMIN | INFORMATION SHEET</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded App</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <!-- Mobile-first viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      overflow: hidden;
+    }
+  </style>
 </head>
+<body>
 
-<body style="margin:0; background:#020617;">
-
-<div class="command-frame-container loading">
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec?page=admin"
-    class="tactical-iframe"
-    allow="geolocation; microphone; camera">
+  <iframe
+    src="https://script.google.com/macros/s/AKfycbzGR_eZJpJvDhIO7bqWiwufSuah7sUDU_a8jhLWw3WOiDK9PPFdt2377a1iFQ-jP6Yw/exec"
+    allowfullscreen
+    loading="lazy">
   </iframe>
-</div>
-
-<style>
-:root {
-  --pulis-blue: #38bdf8;
-  --deep-blue: #1e40af;
-}
-
-/* FRAME */
-.command-frame-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: radial-gradient(circle at top, #020617, #000);
-  overflow: hidden;
-}
-
-/* BORDER LOADING EFFECT */
-.command-frame-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid transparent;
-  border-radius: 2px;
-  background:
-    linear-gradient(90deg, transparent, var(--pulis-blue), transparent) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  animation: border-scan 3s linear infinite;
-  pointer-events: none;
-}
-
-/* INNER GLOW */
-.command-frame-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 25px rgba(56,189,248,0.25);
-  pointer-events: none;
-}
-
-/* IFRAME */
-.tactical-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  animation: fadeIn 1.2s ease-in;
-}
-
-/* ANIMATIONS */
-@keyframes border-scan {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 200% 0%;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>
 
 </body>
 </html>
